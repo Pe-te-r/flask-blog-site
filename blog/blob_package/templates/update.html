@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container post shadow p-4">
+    <form class="container-fluid pb-4" method="post">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4 text-primary">Update post</legend>
+        
+                {{form.hidden_tag()}}
+                <div class="mb-4">
+        
+                    {{form.title.label(class='form-label text-black')}}
+                    {{form.title(class='form-control form-border form-control-lg')}}
+                </div>
+                <div class="mb-4">
+                    {{form.content.label(class='form-label text-black')}}
+                    {{form.content(class='form-control form-border text form-control-lg')}}
+                </div>
+                
+        
+        </fieldset>
+
+        {{form.submit(class='btn btn-primary  d-block mb-3')}}
+
+    </form>
+
+    
+      
+</div>
+{% endblock body %}
+

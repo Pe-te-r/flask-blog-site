@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="container shadow p-4">
+        <form class="container-sm" method="post" action=''>
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Community</legend>
+            
+                {{form.hidden_tag()}}
+                <div class="mb-4">
+
+                    {{form.username.label(class='form-label')}}
+                    {{form.username(class='form-control form-control-lg')}}
+                    <!-- {% if form.username.errors %}
+                        {{form.username(class='form-control is-invalid')}}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {%else%}
+                        {{form.username(class='form-control form-control-lg')}}
+                    {% endif %} -->
+                    
+                </div>
+                <div class="mb-4">
+
+                    {{form.email.label(class='form-label')}}
+                    {{form.email(class='form-control form-control-lg')}}
+                </div>
+                <div class="mb-4">
+                    {{form.password.label(class='form-label')}}
+                    {{form.password(class='form-control form-control-lg')}}
+                </div>
+                <div class="mb-4">
+
+                    {{form.confrim_password.label(class='form-label')}}
+                    {{form.confrim_password(class='form-control form-control-lg')}}
+                </div>
+
+                {{form.submit(class='btn btn-primary d-block mb-3')}}
+            </fieldset>
+        </form>
+        <div class="border-top ">
+            <p class="mt-2">have an account?? <a href='{{url_for("login")}}'>login</a></p>
+        </div>
+        
+
+
+
+
+          
+    </div>
+{% endblock body %}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="content-section profile bg-white shadow-sm p-3">
+        <div class="media">
+                <div class="container">
+                    <img class="rounded-circle img-profile img-fluid img-thumbnail" src="https://i.pinimg.com/236x/c1/db/cc/c1dbcc8f04e9ea0055d542df7d33233f.jpg" alt="">
+                </div>
+                <div class="media-body">
+                    <h2 class="account-heading text-body-secondary">{{current_user.username}}</h2>
+                    <p class="text-secondary">{{current_user.email}}</p>
+                </div>
+    </div>
+    <div class="container">
+        
+                <form class="container-fluid pb-4" method="post">
+                    <fieldset class="form-group">
+                        <legend class="border-bottom text-primary mb-4">Update details</legend>
+                    
+                            {{form.hidden_tag()}}
+                            <div class="mb-4">
+                                {{form.email.label(class='form-label text-body-secondary')}}
+                                {{form.email(class='form-control-plaintext form-control-lg', id='staticEmail',value=current_user.email)}}
+                            </div>
+                            
+                            <div class="mb-4">                               
+                                {{form.username.label(class='form-label text-body-secondary')}}
+                                {{form.username(class='form-control-plaintext form= form-control-lg')}}
+                            </div>
+                            
+                            
+                    </fieldset>
+            
+                    {{form.submit(class='btn btn-primary  d-block mb-3')}}
+                  
+                </form>
+        </div>  
+    </div>
+
+    
+{% endblock body %}
+

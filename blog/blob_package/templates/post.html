@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <article class="media card p-3 mb-2 content-section">
+        <div class="media-head meta">
+          <div id="test">
+            <img class="rounded-circle img-profile img-fluid img-thumbnail" id='small-image' src="https://i.pinimg.com/236x/c1/db/cc/c1dbcc8f04e9ea0055d542df7d33233f.jpg" alt="">
+          <a class="mr-2" href="#">{{ post.author.username }}</a>
+        </div>
+          <small class="text-muted">{{ post.date_posted.date() }}</small>
+        </div>
+        {% if post.author == current_user %}
+        <div class="container">
+            <a class="btn   btn-secondary btn-sm mt-1 mb-1" href='{{url_for("post_update",post_id=post.id)}}'>update</a>
+            <a class="btn btn-danger btn-sm" href='{{url_for("delete",item_id=post.id)}}'>delete</a>
+        </div>
+        {% endif %}
+        <div class="media-body">
+          <h2><a class="article-title text-success" href='{{url_for("post",post_id=post.id)}}'>{{ post.title }}</a></h2>
+          <p class="article-content text-body-secondary">{{ post.content }}</p>
+        </div>
+      </article>
+{% endblock body %}
+
